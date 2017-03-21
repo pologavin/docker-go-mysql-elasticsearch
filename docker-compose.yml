@@ -1,0 +1,11 @@
+# https://github.com/siddontang/go-mysql-elasticsearch
+version: '3'
+services:
+  go-mysql-elasticsearch:
+    image: mariadb:10.1.21
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./me:/go-me
+      - ./data/mysql:/go-me/data-mysql
+    working_dir: /go-me
+    command: ./go-mysql-elasticsearch-linux -config=./etc/river.toml
